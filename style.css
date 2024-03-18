@@ -1,0 +1,156 @@
+/* ----------------------------------------------
+=== Fonts
+----------------------------------------------- */
+
+/* playfair-display-latin-wght-normal */
+@font-face {
+    font-family: 'Playfair Display Variable';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400 900;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/playfair-display:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+
+/* duru-sans-latin-400-normal */
+@font-face {
+    font-family: 'Duru Sans';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/duru-sans@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/duru-sans@latest/latin-400-normal.woff) format('woff');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+
+
+/* ----------------------------------------------
+=== Global
+----------------------------------------------- */
+
+ :root {
+    --title-font-family: 'Playfair Display Variable';
+    --text-font-family: 'Duru Sans';
+    --text-color: #49746D;
+    --text-alternate-color : #DCA184;
+    --text-button-color: #FCF4EB;
+    --bg-color : #DCA184;
+    --bg-alternate-color : #FCF4EB;
+    --border-radius: 8px;
+    --transition: all .2s ease-in-out;
+ }
+
+ html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--text-font-family);
+    line-height: 1.5;
+    color: var(--text-color);
+    font-size: 1.5em;
+}
+
+.container {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section {
+    padding: 6em 4em;
+}
+
+section:nth-child(even) {
+    background-color: var(--bg-color);
+}
+
+section:nth-child(odd) {
+    background-color: var(--bg-alternate-color);
+}
+
+h1 {
+    font-family: var(--title-font-family);
+    font-size: 2em;
+    text-align: center;
+}
+
+
+/* ----------------------------------------------
+=== Header
+----------------------------------------------- */
+
+.header__container {
+    padding: 2em 4em;
+    position: absolute;
+    top : 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--title-font-family);
+}
+
+nav {
+    text-transform: uppercase;
+}
+
+nav > ul {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+nav a {
+    position: relative;
+    transition: var(--transition);
+}
+
+nav a::before,
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: var(--transition);
+}
+
+nav a::before {
+    top: -16px;
+    right: 0;
+}
+
+nav a::after {
+    bottom: -16px;
+    left: 0;
+}
+
+nav > ul > li:hover > a::before,
+nav > ul > li:hover > a::after {
+    width: 70%;
+}
+
+
+/* ----------------------------------------------
+=== Welcome
+----------------------------------------------- */
+
+.welcome {
+    padding-top: 0;
+}
+
+.welcome > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+}
+
+.welcome img {
+    max-width: 100%;
+    height: auto;
+}
