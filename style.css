@@ -50,6 +50,10 @@ body {
     font-size: 1.5em;
 }
 
+header {
+    background-color: var(--bg-alternate-color);
+}
+
 .container {
     max-width: 1400px;
     margin-left: auto;
@@ -74,6 +78,13 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    font-family: var(--title-font-family);
+    font-size: 1.5em;
+    line-height: 1;
+    margin-bottom: 1.5em;
+}
+
 
 /* ----------------------------------------------
 === Header
@@ -81,10 +92,6 @@ h1 {
 
 .header__container {
     padding: 2em 4em;
-    position: absolute;
-    top : 0;
-    left: 0;
-    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -141,6 +148,14 @@ nav > ul > li:hover > a::after {
 
 .welcome {
     padding-top: 0;
+    position: relative;
+}
+
+.welcome > svg {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -1px;
 }
 
 .welcome > .container {
@@ -153,4 +168,62 @@ nav > ul > li:hover > a::after {
 .welcome img {
     max-width: 100%;
     height: auto;
+}
+
+
+/* ----------------------------------------------
+=== Presentation
+----------------------------------------------- */
+
+.presentation > .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 4em
+}
+
+.presentation img {
+    border-radius: 50%;
+    margin: auto;
+}
+
+
+/* ----------------------------------------------
+=== Media
+----------------------------------------------- */ 
+
+@media screen and (max-width: 991px) {
+
+    body {
+        font-size: 0.75em;
+    }
+
+    .header__container {
+        padding: 2em 2em;
+    }
+
+    section {
+        padding: 6em 2em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.25em;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .header__container {
+        justify-content: center;
+    }
+
+    .presentation > .container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 4em;
+    }
+
 }
