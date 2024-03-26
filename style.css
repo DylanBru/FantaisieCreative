@@ -73,18 +73,29 @@ section:nth-child(odd) {
 }
 
 h1 {
-    font-family: var(--title-font-family);
     font-size: 2em;
     text-align: center;
 }
 
 h2 {
-    font-family: var(--title-font-family);
     font-size: 1.5em;
     line-height: 1;
     margin-bottom: 1.5em;
 }
 
+h1,
+h2 {
+    font-family: var(--title-font-family);
+    font-weight: 600;
+}
+
+footer {
+    padding: 0.5em 4em;
+    text-align: center;
+    color: var(--text-color);
+    background-color: var(--bg-alternate-color);
+    font-size: 0.75em;
+}
 
 /* ----------------------------------------------
 === Header
@@ -188,6 +199,65 @@ nav > ul > li:hover > a::after {
 
 
 /* ----------------------------------------------
+=== Products
+----------------------------------------------- */
+
+.products {
+    position: relative;
+}
+
+.products > svg {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -1px;
+}
+
+.products .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    justify-content: center;
+    justify-items: center;
+    gap: 30px;
+}
+
+/* ----------------------------------------------
+=== Contact
+----------------------------------------------- */
+
+.contact > .container > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.contact .contact-cards {
+    display: flex;
+    gap: 3em;
+}
+
+.contact .contact-cards__item {
+    display: flex;
+}
+
+.contact .contact-cards__item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ----------------------------------------------
+=== Footer
+----------------------------------------------- */ 
+
+footer .container {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* ----------------------------------------------
 === Media
 ----------------------------------------------- */ 
 
@@ -226,4 +296,17 @@ nav > ul > li:hover > a::after {
         grid-row-gap: 4em;
     }
 
+    .presentation img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .products .cards {
+    grid-template-columns: repeat(1, 1fr);
+    }
+
+    .products img {
+        max-width: 100%;
+        height: auto;
+    }
 }
