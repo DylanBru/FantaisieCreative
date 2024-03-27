@@ -61,18 +61,31 @@ header {
     margin-right: auto;
 }
 
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    justify-content: center;
+    justify-items: center;
+    gap: 30px;
+}
+
 section {
     padding: 6em 4em;
 }
 
-section:nth-child(even) {
+.main-page section:nth-child(even) {
     background-color: var(--bg-color);
     padding-top: 2em;
 }
 
-section:nth-child(odd) {
+.main-page section:nth-child(odd) {
     background-color: var(--bg-alternate-color);
     padding-bottom: 10em;
+}
+
+.creation-page section,
+.legal-notice section {
+    background-color: var(--bg-alternate-color);
 }
 
 h1 {
@@ -219,17 +232,16 @@ nav > ul > li:hover > a::after {
     bottom: -1px;
 }
 
-.products .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 400px);
-    justify-content: center;
-    justify-items: center;
-    gap: 30px;
+.products img{
+    border-radius: var(--border-radius);
+    transition: var(--transition);
 }
 
-.products img {
-    border-radius: var(--border-radius);
+.products img:hover {
+    box-shadow: 0 0 4em rgba(0, 0, 0, .5);
+    transform: scale(1.02);
 }
+
 
 /* ----------------------------------------------
 === Contact
@@ -272,13 +284,75 @@ footer .container {
 
 
 /* ----------------------------------------------
+=== Creation
+----------------------------------------------- */
+
+.creation-page h1 {
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+}
+
+.creation-page h1::after {
+    content: "";
+    position: absolute;
+    bottom: -0.15em;
+    left: -0.2em;
+    right: 0.2em;
+    height: 0.4em;
+    background-color: var(--bg-color);
+    border-radius: 4px;
+}
+
+.creation-page h1 span {
+    position: relative;
+    z-index: 1;
+}
+
+.creation {
+    min-height: 100vh;
+}
+
+.creation .container {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+}
+
+.creation img{
+    border-radius: var(--border-radius);
+}
+
+
+/* ----------------------------------------------
+=== Legal Notice
+----------------------------------------------- */ 
+
+.legal-notice h1,
+.legal-notice h2 {
+    margin-bottom: 1em;
+}
+
+.legal-notice p {
+    margin-bottom: 2em;
+}
+
+
+/* ----------------------------------------------
 === Media
 ----------------------------------------------- */ 
+
+@media screen and (max-width: 1199px) {
+    .presentation > .container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 4em;
+    }
+}
 
 @media screen and (max-width: 991px) {
 
     body {
-        font-size: 0.75em;
+        font-size: 1em;
     }
 
     .header__container {
@@ -309,21 +383,17 @@ footer .container {
         justify-content: center;
     }
 
-    .presentation > .container {
-        grid-template-columns: repeat(1, 1fr);
-        grid-row-gap: 4em;
-    }
-
     .presentation img {
         max-width: 100%;
         height: auto;
     }
 
-    .products .cards {
+    .cards {
     grid-template-columns: repeat(1, 1fr);
     }
 
-    .products img {
+    .products img,
+    .creation img {
         max-width: 100%;
         height: auto;
     }
